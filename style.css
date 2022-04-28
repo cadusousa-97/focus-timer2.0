@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-buttons: hsla(240, 9%, 89%, 1);
+  --ff-title: 'Roboto', sans-serif;
+  --fc-primary: hsl(240, 6%, 21%);
+  --bg-button-selected: hsl(194, 97%, 31%);
+}
+
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19.2rem;
+  font-family: var(--ff-title);
+  height: 100vh;
+}
+
+.timer {
+  display: flex;
+}
+
+.timer span {
+  font-size: 12.6rem;
+  color: var(--fc-primary);
+}
+
+.controls-wrapper {
+  display: flex;
+  gap: 4rem;
+}
+
+.pause svg path {
+ fill: var(--fc-primary);
+}
+
+.clock-wrapper {
+  align-self: center;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+.sounds-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.sounds-wrapper button {
+  padding: 4.8rem;
+  border: none;
+  background: var(--bg-buttons);
+  border-radius: 2.4rem;
+
+}
+
+.sounds-wrapper .bg-button-selected {
+  background: var(--bg-button-selected)
+}
+
+.forest svg path,
+.rain svg path,
+.fireplace svg path,
+.coffeshop svg path{
+  fill: var(--fc-primary);
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  main {
+    display: grid;
+    gap: 0;
+  }
+  .clock-wrapper {
+    padding-top: 7rem;
+  }
+  .sounds-wrapper {
+    margin-bottom: 7rem;
+  }
+}
