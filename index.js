@@ -27,6 +27,7 @@ buttonPause.addEventListener('click', () => {
 
 buttonForest.addEventListener('click', () => {
   buttonForest.classList.toggle('bg-button-selected')
+  buttonForest.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -38,6 +39,7 @@ buttonForest.addEventListener('click', () => {
 })
 buttonRain.addEventListener('click', () => {
   buttonRain.classList.toggle('bg-button-selected')
+  buttonRain.classList.toggle('darkmode')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -49,6 +51,7 @@ buttonRain.addEventListener('click', () => {
 })
 buttonCoffeshop.addEventListener('click', () => {
   buttonCoffeshop.classList.toggle('bg-button-selected')
+  buttonCoffeshop.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -60,6 +63,7 @@ buttonCoffeshop.addEventListener('click', () => {
 })
 buttonFireplace.addEventListener('click', () => {
   buttonFireplace.classList.toggle('bg-button-selected')
+  buttonFireplace.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')

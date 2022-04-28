@@ -76,6 +76,10 @@ button {
   fill: var(--fc-primary);
 }
 
+button.darkmode svg path {
+  fill: white;
+}
+
 .hide {
   display: none;
 }
