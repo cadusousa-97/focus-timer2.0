@@ -15,6 +15,7 @@
 body.darkmode {
   background: #121214;
   color: white;
+  transition: 0.2s ease-in-out;
 }
 
 
@@ -56,6 +57,7 @@ span.darkmode {
 .controls-wrapper {
   display: flex;
   gap: 4rem;
+  justify-content: center;
 }
 
 .pause svg path {
@@ -64,10 +66,12 @@ span.darkmode {
 
 .controlswrapper button.darkmode svg path {
  fill: white;
+ transition: 0.2s ease-in-out;
 }
 
 .clock-wrapper {
   align-self: center;
+  
 }
 
 button {
@@ -88,6 +92,7 @@ button {
   border: none;
   background: var(--bg-buttons);
   border-radius: 2.4rem;
+  
 
 }
 
@@ -96,33 +101,93 @@ button {
 }
 .sounds-wrapper button.bg-button-selected.darkmode{
   background: hsla(195, 74%, 15%, 1);
+  transition: 0.2s ease-in-out;
+}
+
+svg {
+  justify-self: center;
 }
 
 .forest svg path,
 .rain svg path,
 .fireplace svg path,
-.coffeshop svg path,
-.light-mode-button svg path {
+.coffeshop svg path
+ {
   fill: var(--fc-primary);
+}
+
+button.bg-button-selected svg path {
+  fill: white;
+  transition: 0.2s ease-in-out;
 }
 
 button.darkmode svg path {
   fill: white;
+  transition: 0.2s ease-in-out;
 }
 
 .sounds-wrapper button.darkmode {
   background: hsla(240, 6%, 17%, 1);
-
+  transition: 0.2s ease-in-out;
 }
 
 .hide {
   display: none;
 }
 
+.forest,
+.rain,
+.coffeshop,
+.fireplace {
+  display: grid;
+}
+
+.slide-bar {
+  margin-top: 2rem;
+  width: 9rem;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: hsl(240, 6%, 21%);
+  border-radius: 0.5rem;
+  height: 0.7rem;
+}
+button input[type="range"].bg-button-selected {
+  background: white;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: hsl(240, 6%, 21%);
+  cursor: ew-resize;
+  transition: 0.2s ease-in-out;
+}
+input[type="range"].bg-button-selected::-webkit-slider-thumb {
+  background-color: white;
+}
+input[type="range"]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type="range"].darkmode {
+  background-color: #FFFFFF;
+}
+input[type="range"].darkmode::-webkit-slider-thumb {
+  background-color: #FFFFFF;
+}
+
 @media (max-width: 880px) {
   main {
     display: grid;
-    gap: 0;
+    gap: 4rem;
   }
   .clock-wrapper {
     padding-top: 7rem;

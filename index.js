@@ -7,6 +7,7 @@ const buttonForest = document.querySelector('.forest')
 const buttonRain = document.querySelector('.rain')
 const buttonCoffeshop = document.querySelector('.coffeshop')
 const buttonFireplace = document.querySelector('.fireplace')
+const slideBar = Array.from(document.querySelectorAll('.slide-bar'))
 const timer = document.getElementsByTagName('span')[1]
 const body = document.getElementsByTagName('body')[0]
 let minutesDisplay = document.querySelector('.minutes')
@@ -16,8 +17,10 @@ let timerTimeOut
 
 /*-------------------- DARK MODE -----------------*/
 
-const buttonLightMode = document.querySelector('.light-mode-button')
-buttonLightMode.addEventListener('click', () => {
+function AddingDarkMode() {
+  slideBar.forEach(function (node) {
+    node.classList.add('darkmode')
+  })
   buttonLightMode.classList.add('hide')
   body.classList.add('darkmode')
   timer.classList.add('darkmode')
@@ -33,10 +36,11 @@ buttonLightMode.addEventListener('click', () => {
   buttonCoffeshop.classList.add('darkmode')
   buttonFireplace.classList.add('darkmode')
   buttonDarkMode.classList.remove('hide')
-})
-const buttonDarkMode = document.querySelector('.dark-mode-button')
-buttonDarkMode.addEventListener('click', () => {
-  buttonDarkMode.classList.add('hide')
+}
+function RemovingDarkMode() {
+  slideBar.forEach(function (node) {
+    node.classList.remove('darkmode')
+  })
   timer.classList.remove('darkmode')
   minutesDisplay.classList.remove('darkmode')
   secondsDisplay.classList.remove('darkmode')
@@ -51,6 +55,16 @@ buttonDarkMode.addEventListener('click', () => {
   buttonRain.classList.remove('darkmode')
   buttonCoffeshop.classList.remove('darkmode')
   buttonFireplace.classList.remove('darkmode')
+  buttonDarkMode.classList.add('hide')
+}
+
+const buttonLightMode = document.querySelector('.light-mode-button')
+buttonLightMode.addEventListener('click', () => {
+  AddingDarkMode()
+})
+const buttonDarkMode = document.querySelector('.dark-mode-button')
+buttonDarkMode.addEventListener('click', () => {
+  RemovingDarkMode()
 })
 
 /*-------------------- EVENT LISTENERS -----------------*/
@@ -67,7 +81,11 @@ buttonPause.addEventListener('click', () => {
 })
 
 buttonForest.addEventListener('click', () => {
-  buttonForest.classList.toggle('bg-button-selected')
+  buttonForest.classList.add('bg-button-selected')
+  slideBar[0].classList.add('bg-button-selected')
+  slideBar[1].classList.remove('bg-button-selected')
+  slideBar[2].classList.remove('bg-button-selected')
+  slideBar[3].classList.remove('bg-button-selected')
   buttonRain.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -78,7 +96,11 @@ buttonForest.addEventListener('click', () => {
   forestAudio.loop = true
 })
 buttonRain.addEventListener('click', () => {
-  buttonRain.classList.toggle('bg-button-selected')
+  buttonRain.classList.add('bg-button-selected')
+  slideBar[1].classList.add('bg-button-selected')
+  slideBar[0].classList.remove('bg-button-selected')
+  slideBar[2].classList.remove('bg-button-selected')
+  slideBar[3].classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -89,7 +111,11 @@ buttonRain.addEventListener('click', () => {
   rainAudio.loop = true
 })
 buttonCoffeshop.addEventListener('click', () => {
-  buttonCoffeshop.classList.toggle('bg-button-selected')
+  buttonCoffeshop.classList.add('bg-button-selected')
+  slideBar[2].classList.add('bg-button-selected')
+  slideBar[0].classList.remove('bg-button-selected')
+  slideBar[1].classList.remove('bg-button-selected')
+  slideBar[3].classList.remove('bg-button-selected')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -100,7 +126,11 @@ buttonCoffeshop.addEventListener('click', () => {
   coffeshopAudio.loop = true
 })
 buttonFireplace.addEventListener('click', () => {
-  buttonFireplace.classList.toggle('bg-button-selected')
+  buttonFireplace.classList.add('bg-button-selected')
+  slideBar[3].classList.add('bg-button-selected')
+  slideBar[0].classList.remove('bg-button-selected')
+  slideBar[1].classList.remove('bg-button-selected')
+  slideBar[2].classList.remove('bg-button-selected')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
@@ -111,7 +141,7 @@ buttonFireplace.addEventListener('click', () => {
   fireplaceAudio.loop = true
 })
 
-/*-------------------- MAIN FUNCTIONS -----------------*/
+/*-------------------- MAIN FUNCTIONS TIMER -----------------*/
 
 function resetControls() {
   buttonPlay.classList.remove('hide')
@@ -189,3 +219,13 @@ const fireplaceAudio = new Audio(
 const coffeshopAudio = new Audio(
   'https://github.com/cadusousa-97/relax-sounds/blob/main/coffeshop.wav?raw=true'
 )
+
+const audios = [forestAudio, rainAudio, fireplaceAudio, coffeshopAudio]
+
+slideBar.forEach(node => {
+  node.addEventListener('mousemove', () => {
+    for (let audio of audios) {
+      audio.volume = node.value / 100
+    }
+  })
+})
