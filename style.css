@@ -12,6 +12,12 @@
   --bg-button-selected: hsl(194, 97%, 31%);
 }
 
+body.darkmode {
+  background: #121214;
+  color: white;
+}
+
+
 
 main {
   display: flex;
@@ -19,16 +25,32 @@ main {
   justify-content: center;
   gap: 19.2rem;
   font-family: var(--ff-title);
-  height: 100vh;
+  height: 80vh;
+}
+
+
+header {
+  display: grid;
+}
+
+header button {
+  justify-self: end;
+  margin: 6rem 6rem 0 0;
 }
 
 .timer {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.timer span {
+span {
   font-size: 12.6rem;
   color: var(--fc-primary);
+}
+
+span.darkmode {
+  color: white;
 }
 
 .controls-wrapper {
@@ -37,7 +59,11 @@ main {
 }
 
 .pause svg path {
- fill: var(--fc-primary);
+  fill: var(--fc-primary);
+}
+
+.controlswrapper button.darkmode svg path {
+ fill: white;
 }
 
 .clock-wrapper {
@@ -68,16 +94,25 @@ button {
 .sounds-wrapper .bg-button-selected {
   background: var(--bg-button-selected)
 }
+.sounds-wrapper button.bg-button-selected.darkmode{
+  background: hsla(195, 74%, 15%, 1);
+}
 
 .forest svg path,
 .rain svg path,
 .fireplace svg path,
-.coffeshop svg path{
+.coffeshop svg path,
+.light-mode-button svg path {
   fill: var(--fc-primary);
 }
 
 button.darkmode svg path {
   fill: white;
+}
+
+.sounds-wrapper button.darkmode {
+  background: hsla(240, 6%, 17%, 1);
+
 }
 
 .hide {

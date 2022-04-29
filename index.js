@@ -7,10 +7,51 @@ const buttonForest = document.querySelector('.forest')
 const buttonRain = document.querySelector('.rain')
 const buttonCoffeshop = document.querySelector('.coffeshop')
 const buttonFireplace = document.querySelector('.fireplace')
+const timer = document.getElementsByTagName('span')[1]
+const body = document.getElementsByTagName('body')[0]
 let minutesDisplay = document.querySelector('.minutes')
 let secondsDisplay = document.querySelector('.seconds')
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeOut
+
+/*-------------------- DARK MODE -----------------*/
+
+const buttonLightMode = document.querySelector('.light-mode-button')
+buttonLightMode.addEventListener('click', () => {
+  buttonLightMode.classList.add('hide')
+  body.classList.add('darkmode')
+  timer.classList.add('darkmode')
+  minutesDisplay.classList.add('darkmode')
+  secondsDisplay.classList.add('darkmode')
+  buttonPlay.classList.add('darkmode')
+  buttonPause.classList.add('darkmode')
+  buttonStop.classList.add('darkmode')
+  buttonIncrease.classList.add('darkmode')
+  buttonDecrease.classList.add('darkmode')
+  buttonForest.classList.add('darkmode')
+  buttonRain.classList.add('darkmode')
+  buttonCoffeshop.classList.add('darkmode')
+  buttonFireplace.classList.add('darkmode')
+  buttonDarkMode.classList.remove('hide')
+})
+const buttonDarkMode = document.querySelector('.dark-mode-button')
+buttonDarkMode.addEventListener('click', () => {
+  buttonDarkMode.classList.add('hide')
+  timer.classList.remove('darkmode')
+  minutesDisplay.classList.remove('darkmode')
+  secondsDisplay.classList.remove('darkmode')
+  buttonLightMode.classList.remove('hide')
+  body.classList.remove('darkmode')
+  buttonPlay.classList.remove('darkmode')
+  buttonPause.classList.remove('darkmode')
+  buttonStop.classList.remove('darkmode')
+  buttonIncrease.classList.remove('darkmode')
+  buttonDecrease.classList.remove('darkmode')
+  buttonForest.classList.remove('darkmode')
+  buttonRain.classList.remove('darkmode')
+  buttonCoffeshop.classList.remove('darkmode')
+  buttonFireplace.classList.remove('darkmode')
+})
 
 /*-------------------- EVENT LISTENERS -----------------*/
 
@@ -27,7 +68,6 @@ buttonPause.addEventListener('click', () => {
 
 buttonForest.addEventListener('click', () => {
   buttonForest.classList.toggle('bg-button-selected')
-  buttonForest.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -39,7 +79,6 @@ buttonForest.addEventListener('click', () => {
 })
 buttonRain.addEventListener('click', () => {
   buttonRain.classList.toggle('bg-button-selected')
-  buttonRain.classList.toggle('darkmode')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -51,7 +90,6 @@ buttonRain.addEventListener('click', () => {
 })
 buttonCoffeshop.addEventListener('click', () => {
   buttonCoffeshop.classList.toggle('bg-button-selected')
-  buttonCoffeshop.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonFireplace.classList.remove('bg-button-selected')
@@ -63,7 +101,6 @@ buttonCoffeshop.addEventListener('click', () => {
 })
 buttonFireplace.addEventListener('click', () => {
   buttonFireplace.classList.toggle('bg-button-selected')
-  buttonFireplace.classList.toggle('darkmode')
   buttonRain.classList.remove('bg-button-selected')
   buttonForest.classList.remove('bg-button-selected')
   buttonCoffeshop.classList.remove('bg-button-selected')
